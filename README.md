@@ -85,7 +85,10 @@ allprojects {
 			...
 			maven { url 'https://jitpack.io' }
 		}
-	}
+	}	
+```
+
+```gradle
 
 dependencies {
     compile 'com.github.datalink747:RxProgress:1.0'
