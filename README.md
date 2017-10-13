@@ -22,7 +22,63 @@ RxPregress with Nice Animation
 <img src="picture/progress3.png" height="450" width="280">
 </td>
 </tr>
-</table>  
+</table> 
+
+# Code :
+> RxProgress
+```java
+ //Init Observe for btn observe
+        user_Observable = Observable
+                .timer(TIME_DELAY, TimeUnit.MILLISECONDS, AndroidSchedulers.mainThread())
+                .doOnTerminate(() -> btn_loading_observe.setText("Observing Again"))
+                .doOnComplete(() -> AnimationView()) //if complete show animation
+                .map(aLong -> getMessageResult()); //Call function messageresult()
+
+        //Init Flowable for btn Floable
+        user_Flowable = Flowable
+                .timer(TIME_DELAY, TimeUnit.MILLISECONDS, AndroidSchedulers.mainThread())
+                .doOnComplete(() -> btn_loadig_flowable.setText("Flowable Again"))
+                .doOnComplete(() -> AnimationView()) //if complete show animation
+                .map(aLong -> getMessageResult());  //Call function messageresult()
+
+    }
+    
+    
+    
+    
+    //btn observe
+        btn_loading_observe.setOnClickListener(view->{
+
+            mCompositeDisposable.add(RxProgress.from(MainActivity.this)
+                    .withMessage("Logging in...")
+                    .forObservable(user_Observable)
+                    .subscribe(id -> getMessage(id),
+                            throwable -> Log.w(TAG, throwable.getMessage())));
+
+        });
+
+        //btn Flowable
+        btn_loadig_flowable.setOnClickListener(view ->{
+
+            mCompositeDisposable.add(RxProgress.from(MainActivity.this)
+                    .forFlowable(user_Flowable, BackpressureStrategy.DROP)
+                    .subscribe(id -> getMessage(id),
+                            throwable -> Log.w(TAG, throwable.getMessage())));
+
+        } );
+```
+
+# Code :
+> Init Animation
+```java
+
+ AnimationHelper p =new AnimationHelper(AnimationScale.TransLationTop);
+        p.animateGroup(findViewById(R.id.btn_loading_observe),findViewById(R.id.btn_loading_flowable),findViewById(R.id.fab));
+
+```
+
+# Include:
+[![Ansible Role](https://img.shields.io/badge/Rx-Progress-ff2c94.svg?style=flat-square)](https://github.com/datalink747/RxProgress/blob/master/app/src/main/java/com/soussidev/kotlin/rxprogress/MainActivity.java)
 
 
 # SDK Required
