@@ -77,6 +77,21 @@ RxPregress with Nice Animation
 
 ```
 
+# Add dependencie to your project :
+
+```gradle
+allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+
+dependencies {
+    compile 'com.github.datalink747:RxProgress:1.0'
+}
+```
+
 # Include:
 [![Ansible Role](https://img.shields.io/badge/Rx-Progress-ff2c94.svg?style=flat-square)](https://github.com/datalink747/RxProgress/blob/master/app/src/main/java/com/soussidev/kotlin/rxprogress/MainActivity.java)
 
