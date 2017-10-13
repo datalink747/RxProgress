@@ -6,6 +6,24 @@ RxPregress with Nice Animation
 
 <a href='https://ko-fi.com/A243447K' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://az743702.vo.msecnd.net/cdn/kofi4.png?v=0' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
 
+# Preview :
+<table>
+<tr align="center">
+<td>
+<p>Interface 1 </p>
+<img src="picture/progress1.png" height="450" width="280">
+</td>
+<td>
+<p>Start Loading </p>
+<img src="picture/progress2.png" height="450" width="280">
+</td>
+   <td>
+<p>Resultat </p>
+<img src="picture/progress3.png" height="450" width="280">
+</td>
+</tr>
+</table>  
+
 
 # SDK Required
 + Target sdk:<br>
